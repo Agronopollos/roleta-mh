@@ -1,13 +1,18 @@
 body {
-    font-family: 'MedievalSharp', cursive;
+    margin: 0;
+    padding: 0;
+    background-image: url('./assets/made-a-mh-wilds.jpeg'); /* Caminho relativo para a imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a página */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-attachment: fixed; /* Faz o fundo permanecer fixo ao rolar a página */
+    font-family: Arial, sans-serif; /* Define uma fonte padrão */
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #121212;
     color: #fff;
     min-height: 100vh;
     padding: 20px;
-    margin: 0;
   }
   
   h1 {
