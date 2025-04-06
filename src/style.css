@@ -29,46 +29,20 @@ body {
     position: relative;
   }
   
-  /*.pointer.left {
+  .pointer.left {
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-left: 28px solid #DAA520; 
+    border-left: 28px solid #DAA520; /* dourado tribal */
     position: absolute;
     left: -14px;
     top: 136px;
     z-index: 2;
     filter: drop-shadow(0 0 4px #000);
-  }*/
+  }
+  
 
-  .roleta-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  
-  .pointer-image {
-    position: absolute;
-    left: -35px; /* ajuste horizontal */
-    top: 50%;
-    transform: translateY(-50%) rotate(90deg); /* gira para apontar para a direita */
-    width: 50px;
-    z-index: 5;
-    pointer-events: none;
-  }
-  
-  .pointer-image img {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 0 6px #000);
-  }
-  
-  
-  
-  
-  
   canvas {
     border-radius: 50%;
     background-color: #fff;

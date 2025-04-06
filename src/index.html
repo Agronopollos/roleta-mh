@@ -1,38 +1,30 @@
+<!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Roleta Monster Hunter Wilds</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roleta Monster Hunter Wilds</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <h1>🎯 Roleta de Caçada - Monster Hunter Wilds</h1>
+  <h1>🎯 Roleta de Caçada - Monster Hunter Wilds</h1>
 
-    <div class="roletas">
-        <div class="roleta-container">
-            <div class="pointer-image left">
-                <img src="assets/arrow-pointer.png" alt="Ponteiro Tribal">
-            </div>
-            <canvas id="wheelMonsters" width="300" height="300"></canvas>
-            <p class="label">Monstro Sorteado: <span id="resultMonster">---</span></p>
-        </div>
-
-        <div class="roleta-container">
-            <div class="pointer-image left">
-                <img src="assets/arrow-pointer.png" alt="Ponteiro Tribal">
-            </div>
-            <canvas id="wheelWeapons" width="300" height="300"></canvas>
-            <p class="label">Arma Sorteada: <span id="resultWeapon">---</span></p>
-        </div>
+  <div class="roletas">
+    <div class="roleta-container">
+      <div class="pointer left"></div>
+      <canvas id="wheelMonsters" width="300" height="300"></canvas>
+      <p class="label">Monstro Sorteado: <span id="resultMonster">---</span></p>
     </div>
 
-    <button onclick="spinRoulette()">🎲 Girar Roletas</button>
+    <div class="roleta-container">
+      <div class="pointer left"></div>
+      <canvas id="wheelWeapons" width="300" height="300"></canvas>
+      <p class="label">Arma Sorteada: <span id="resultWeapon">---</span></p>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <button onclick="spinRoulette()">🎲 Girar Roletas</button>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
