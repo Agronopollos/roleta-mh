@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roleta Monster Hunter Wilds</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="src/style.css" />
 </head>
 
 <body>
@@ -13,13 +13,13 @@
 
   <div class="roletas">
     <div class="roleta-container">
-      <img class="img-pointer" src="assets/greatsword-pointer.png" alt="Ponteiro Espada" />
+      <img class="img-pointer" src="src/assets/greatsword-pointer.png" alt="Ponteiro Espada" />
       <canvas id="wheelMonsters" width="300" height="300"></canvas>
       <p class="label">Monstro Sorteado: <span id="resultMonster">---</span></p>
     </div>
 
     <div class="roleta-container">
-      <img class="img-pointer" src="assets/greatsword-pointer.png" alt="Ponteiro Espada" />
+      <img class="img-pointer" src="src/assets/greatsword-pointer.png" alt="Ponteiro Espada" />
       <canvas id="wheelWeapons" width="300" height="300"></canvas>
       <p class="label">Arma Sorteada: <span id="resultWeapon">---</span></p>
     </div>
@@ -27,7 +27,7 @@
 
   <button onclick="spinRoulette()">🎲 Girar Roletas</button>
 
-  <script src="script.js"></script>
+  <script src="src/script.js"></script>
 </body>
 
 </html>
