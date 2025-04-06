@@ -29,6 +29,7 @@ const monsters = [
   "Gore Magala",
   "Arkveld",
   "Zoh Shia",
+
 ];
 const weapons = [
   "Espadão", "Espada Longa", "Espada e Escudo", "Duplas-lâminas",
@@ -59,12 +60,22 @@ const ctxWeapons = canvasWeapons.getContext("2d");
 const resultMonster = document.getElementById("resultMonster");
 const resultWeapon = document.getElementById("resultWeapon");
 
+// Inicializar as variáveis antes de usá-las
+let rotationMonster = 0;
+let rotationWeapon = 0;
+
 function drawWheel(ctx, items, rotation) {
+  // Verificar se o contexto está disponível
+  if (!ctx) {
+    console.error("Contexto do canvas não encontrado!");
+    return;
+  }
+
   // Calcular o maior nome
   const maxTextLength = Math.max(...items.map(item => item.length));
 
-  // Ajustar o tamanho do canvas e da roleta com base no maior nome
-  const canvasSize = 400 + maxTextLength * 8; // Aumenta o tamanho do canvas proporcionalmente
+  // Ajustar o tamanho do canvas e da roleta com base no tamanho da tela
+  const canvasSize = Math.min(window.innerWidth, window.innerHeight) * 0.8; // 80% do menor lado da tela
   const radius = canvasSize / 2 - 20; // Define o raio da roleta
   ctx.canvas.width = canvasSize;
   ctx.canvas.height = canvasSize;
@@ -72,7 +83,10 @@ function drawWheel(ctx, items, rotation) {
   // Ângulo por item
   const anglePerItem = (2 * Math.PI) / items.length;
 
+  // Limpar o canvas
   ctx.clearRect(0, 0, canvasSize, canvasSize);
+
+  // Configurar o centro do canvas
   ctx.save();
   ctx.translate(canvasSize / 2, canvasSize / 2);
   ctx.rotate(rotation);
@@ -88,16 +102,17 @@ function drawWheel(ctx, items, rotation) {
     // Desenhar texto
     ctx.save();
     ctx.rotate(i * anglePerItem + anglePerItem / 2);
-    ctx.translate(radius / 2, 0); // Posicionar o texto no meio da fatia
+    ctx.translate(radius * 0.6, 0); // Posicionar o texto no meio da fatia
 
     ctx.fillStyle = "#fff";
 
     // Ajustar dinamicamente o tamanho da fonte
-    const fontSize = Math.min(30, radius / maxTextLength); // Limitar o tamanho da fonte
-    ctx.font = `bold ${fontSize}px Comic Sans MS`;
+    const fontSize = Math.max(12, Math.min(20, radius / maxTextLength)); // Limitar o tamanho da fonte
+    ctx.font = `bold ${fontSize}px Arial`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
+    // Garantir que o texto está sendo desenhado
     ctx.fillText(items[i], 0, 0);
 
     ctx.restore();
@@ -106,8 +121,17 @@ function drawWheel(ctx, items, rotation) {
   ctx.restore();
 }
 
-let rotationMonster = 0;
-let rotationWeapon = 0;
+function resizeCanvas() {
+  console.log("Redimensionando canvas...");
+  drawWheel(ctxMonsters, monsters, rotationMonster);
+  drawWheel(ctxWeapons, weapons, rotationWeapon);
+}
+
+// Redimensionar o canvas ao redimensionar a janela
+window.addEventListener("resize", resizeCanvas);
+
+// Inicializar roletas
+resizeCanvas();
 
 function spinRoulette() {
   const spinTime = 3000;
@@ -151,7 +175,3 @@ function getSelectedIndex(rotation, itemCount) {
 function easeOutCubic(t) {
   return 1 - Math.pow(1 - t, 3);
 }
-
-// Desenhar roletas inicialmente
-drawWheel(ctxMonsters, monsters, rotationMonster);
-drawWheel(ctxWeapons, weapons, rotationWeapon);
