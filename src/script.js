@@ -28,6 +28,7 @@ const monsters = [
   "Blangonga",
   "Gore Magala",
   "Arkveld",
+  "Mizutsune",
   "Zoh Shia",
 
 ];
